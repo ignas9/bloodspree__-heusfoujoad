@@ -9,6 +9,8 @@ if game.PlaceId == 5482568838 then
 	local uis = game:GetService('UserInputService')
 	local mouse = lp:GetMouse()
 	local tws = game:GetService('TweenService')
+	local speed = 16
+	local jp = 50
 	local function giveBomb()
 		fireclickdetector(workspace['Game Assets'].TakeGear.ClickDetector)
 	end
@@ -246,14 +248,10 @@ end
 end
 end)
 tabs.lp:CreateSlider('Speed',16,500,function(v)
-while wait() do
-	char.Humanoid.WalkSpeed = v
-end
+	speed = v
 end)
 tabs.lp:CreateSlider('JumpPower',50,500,function(v)
-while wait() do
-	char.Humanoid.JumpPower = v
-end
+	jp = v
 end)
 tabs.guns:CreateButton('Give all primary guns',function()
     for i,v in next,reps:WaitForChild('Primary'):GetChildren() do
@@ -297,7 +295,11 @@ game:GetService("UserInputService").InputBegan:connect(function(inputObject,iswr
 	if iswriting then return end
 	if inputObject.KeyCode == Enum.KeyCode.V and not iswriting and iswriting == false then
 		aimbotSettings.enabled = not aimbotSettings.enabled
-		v_lll11l11l1l1l11ll1l:Set(aimbotSettings.enabled)
+		if aimbotSettings.enabled == true then
+			v_lll11l11l1l1l11ll1l:Set(true)
+		else
+			v_lll11l11l1l1l11ll1l:Set(false)
+		end
 	end
 end)
 
