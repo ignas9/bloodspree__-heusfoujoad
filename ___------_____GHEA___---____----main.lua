@@ -27,7 +27,6 @@ local aimbotSettings =
 	{
 	enabled = false,
 	bp = 'Head',
-  aimbotKeyBind
 	}
 local tabs = 
     {
@@ -289,6 +288,8 @@ lp.Chatted:Connect(function(m)
 	local e = m:split('')
 	if e[1]=='-' then
 		m=m:gsub('-','')command(m)
+	elseif e[1]=='/' and e[2]=='e' and e[3]==' ' then
+		m=m:gsub('/e ','')command(m)
 	end
 end)
 
