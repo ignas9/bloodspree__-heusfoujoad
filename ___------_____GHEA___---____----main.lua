@@ -317,7 +317,10 @@ lp.Chatted:Connect(function(m)
 		m=m:gsub('/e ','')command(m)
 	end
 end)
-
+game:service'RunService'.RenderStepped:Connect(function()
+	char.WalkSpeed = speed
+	char.JumpPower = jp
+end)
 notify('Bloodspree Haxx','Loaded Bloodspree Haxx Press RightCtrl to toggle gui!',5)
 notify('Aimbot Prefix','Press V to Toggle aimbot!',5)
 else
