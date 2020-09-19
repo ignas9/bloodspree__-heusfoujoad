@@ -318,8 +318,8 @@ lp.Chatted:Connect(function(m)
 	end
 end)
 game:service'RunService'.RenderStepped:Connect(function()
-	char.WalkSpeed = speed
-	char.JumpPower = jp
+	char.Humanoid.WalkSpeed = speed
+	char.Humanoid.JumpPower = jp
 end)
 notify('Bloodspree Haxx','Loaded Bloodspree Haxx Press RightCtrl to toggle gui!',5)
 notify('Aimbot Prefix','Press V to Toggle aimbot!',5)
