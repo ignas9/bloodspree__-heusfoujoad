@@ -33,6 +33,7 @@ if game.PlaceId == 5482568838 then
     	{
   	  guns = ui:CreateTab('guns',"guns 'n shit lol",true),
   	  aimbot = ui:CreateTab('aimbot','aimbot settings',true),
+	  lp = ui:CreateTab('localplayer','modify yourself',true),
 	}
 	local guns = {'Stun Bomb'}
 	local cmds = 
@@ -244,6 +245,12 @@ workspace.CurrentCamera.CFrame = CFrame.new(workspace.CurrentCamera.CFrame.Posit
 end
 end
 end)
+tabs.lp:CreateSlider('Speed',16,500,function(v)
+	char.Humanoid.WalkSpeed = v
+end)
+tabs.lp:CreateSlider('JumpPower',50,500,function(v)
+	char.Humanoid.JumpPower = v
+end)
 tabs.guns:CreateButton('Give all primary guns',function()
     for i,v in next,reps:WaitForChild('Primary'):GetChildren() do
         remote(false,'LoadoutEvent','Primary',v.Name)
@@ -307,4 +314,6 @@ end)
 
 notify('Bloodspree Haxx','Loaded Bloodspree Haxx Press RightCtrl to toggle gui!',5)
 notify('Aimbot Prefix','Press V to Toggle aimbot!',5)
+else
+game.Players.LocalPlayer:Kick('Incorrect game!')
 end
