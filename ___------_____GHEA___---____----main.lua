@@ -246,10 +246,14 @@ end
 end
 end)
 tabs.lp:CreateSlider('Speed',16,500,function(v)
+while wait() do
 	char.Humanoid.WalkSpeed = v
+end
 end)
 tabs.lp:CreateSlider('JumpPower',50,500,function(v)
+while wait() do
 	char.Humanoid.JumpPower = v
+end
 end)
 tabs.guns:CreateButton('Give all primary guns',function()
     for i,v in next,reps:WaitForChild('Primary'):GetChildren() do
