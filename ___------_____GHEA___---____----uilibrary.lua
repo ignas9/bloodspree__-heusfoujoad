@@ -352,7 +352,7 @@ function library:CreateTab(text, desc, mode)
 
         resize(30)
 
-		return aa;
+		return aa
     end
     function s:CreateSlider(text, minvalue, maxvalue, callback)
         text = text or ""
@@ -606,7 +606,7 @@ function library:CreateTab(text, desc, mode)
                     DropdownText.Text = "  " .. text .. " / " .. to
 		end
 
-		return ssss;
+		return ssss
     end
     function s:CreateButton(text, callback)
 		text = text or ""
