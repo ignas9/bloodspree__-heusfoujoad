@@ -12,7 +12,7 @@ if game.PlaceId == 5482568838 then
 	local speed = 16
 	local jp = 50
 	local function giveBomb()
-		fireclickdetector(workspace['Game Assets'].TakeGear.ClickDetector)
+		fireclickdetector(workspace['Game Assets'].TakeGear.ClickDetector,999)
 	end
 	local function trollUser(name)
 		giveBomb()
@@ -296,9 +296,9 @@ game:GetService("UserInputService").InputBegan:connect(function(inputObject,iswr
 	if inputObject.KeyCode == Enum.KeyCode.V and not iswriting and iswriting == false then
 		aimbotSettings.enabled = not aimbotSettings.enabled
 		if aimbotSettings.enabled == true then
-			v_lll11l11l1l1l11ll1l:Set(true)
+			v_lll11l11l1l1l11ll1l.set(true)
 		else
-			v_lll11l11l1l1l11ll1l:Set(false)
+			v_lll11l11l1l1l11ll1l.set(false)
 		end
 	end
 end)
@@ -317,9 +317,8 @@ lp.Chatted:Connect(function(m)
 		m=m:gsub('/e ','')command(m)
 	end
 end)
-game:service'RunService'.RenderStepped:Connect(function()
-	char.Humanoid.WalkSpeed = speed
-	char.Humanoid.JumpPower = jp
+lp.CharacterAdded:Connect(function()
+	
 end)
 notify('Bloodspree Haxx','Loaded Bloodspree Haxx Press RightCtrl to toggle gui!',5)
 notify('Aimbot Prefix','Press V to Toggle aimbot!',5)
