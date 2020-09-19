@@ -684,7 +684,7 @@ function library:CreateTab(text, desc, mode)
                 Button.TextSize = 16
             end
         )
-        function c_hahahaha:Text(t)
+        function c_hahahaha:Edit(t)
           Button.Text = t
         end
         resize(30)
@@ -730,6 +730,30 @@ function library:CreateTab(text, desc, mode)
 		TextboxUnderline.BorderSizePixel = 0
 		TextboxUnderline.Position = UDim2.new(0.50075686, 0, 0.966666639, 0)
 		TextboxUnderline.Size = UDim2.new(0, 0, 0, 2)
+
+		local TextBoxInfo = {}
+
+		function TextBoxInfo:Edit(text)
+			TextBox.Text = text
+		end
+
+		return TextBoxInfo
+	end
+	function s:CreateText(string)
+		resize(30)
+		string = string or ""
+		local TextBox = Instance.new("TextLabel")
+		
+		TextBox.Parent = container
+		TextBox.BackgroundColor3 = theme.TextBox_Color
+		TextBox.BorderSizePixel = 0
+		TextBox.Position = UDim2.new(0, 0, 0.818181813, 0)
+		TextBox.Size = UDim2.new(0, 185, 0, 30)
+		TextBox.Font = Enum.Font.SourceSansLight
+		TextBox.PlaceholderColor3 = theme.TextBox_Text_Color
+		TextBox.Text = string
+		TextBox.TextColor3 = theme.TextBox_Text_Color
+		TextBox.TextSize = 15.000
 
 		local TextBoxInfo = {}
 
