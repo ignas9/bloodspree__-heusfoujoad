@@ -599,63 +599,14 @@ function library:CreateTab(text, desc, mode)
             end
         )
 
-		--[[local ssss = {}
+		local ssss = {}
 
-		function ssss:Add(name)
-	            local Option1 = Dropdown:FindFirstChild("Option1"):Clone()
-	            Option1.Name = "Option1"
-	            Option1.Parent = Dropdown
-	            Option1.BackgroundColor3 = theme.Dropdown_Option_Color
-	            Option1.BorderColor3 = theme.Dropdown_Option_BorderColor
-	            Option1.BorderSizePixel = theme.Dropdown_Option_BorderSize
-	            Option1.BackgroundTransparency = 0
-	            Option1.Position = UDim2.new(0, 0, 0.5, 0)
-	            Option1.Size = UDim2.new(0, 184, 0, 30)
-	            Option1.Font = Enum.Font.SourceSansLight
-	            Option1.Text = name
-	            Option1.TextColor3 = theme.Dropdown_Option_Text_Color
-	            Option1.TextSize = 16.000
-	            Option1.AutoButtonColor = false
-	            DropYSize = DropYSize + 30
-	
-	            Option1.MouseButton1Click:Connect(
-	                function()
-	                    callback(name)
-	                    DropdownText.Text = "  " .. text .. " / " .. name
-	                    TweenService:Create(
-	                        Dropdown,
-	                        TweenInfo.new(0.1, Enum.EasingStyle.Quart, Enum.EasingDirection.Out),
-	                        {Size = UDim2.new(0, 184, 0, 30)}
-	                    ):Play()
-	                    TweenService:Create(
-	                        container,
-	                        TweenInfo.new(0.1, Enum.EasingStyle.Quart, Enum.EasingDirection.Out),
-	                        {Size = UDim2.new(0, 185, 0, BodyYSize)}
-	                    ):Play()
-	                    IsDropped = false
-	                    DropdownOpen.Text = "+"
-	                end
-	            )
-			if IsDropped then
-                    TweenService:Create(
-                        Dropdown,
-                        TweenInfo.new(0.1, Enum.EasingStyle.Quart, Enum.EasingDirection.Out),
-                        {Size = UDim2.new(0, 184, 0, DropYSize + 30)}
-                    ):Play()
-					TweenService:Create(
-                        container,
-                        TweenInfo.new(0.1, Enum.EasingStyle.Quart, Enum.EasingDirection.Out),
-                        {Size = UDim2.new(0, 184, 0, BodyYSize + DropYSize)}
-                    ):Play()
-                end
-			local s2 = {}
-
-			function s2:Remove()
-				Option1:Destroy()
-			end
+		function ssss:Set(to)
+	            callback(to)
+                    DropdownText.Text = "  " .. text .. " / " .. to
 		end
 
-		return ssss;]]
+		return ssss;
     end
     function s:CreateButton(text, callback)
 		text = text or ""
