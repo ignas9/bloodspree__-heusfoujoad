@@ -1,60 +1,62 @@
-local function getlink(name)
-  return "https://raw.githubusercontent.com/ignas9/bloodspree__-heusfoujoad/master/___------_____GHEA___---____----"..name
-end
-local ui = loadstring(game:HttpGet(getlink('uilibrary.lua')))()
-local reps = game:GetService('ReplicatedStorage')
-local lp = game:GetService('Players').LocalPlayer
-local char = lp.Character
-local uis = game:GetService('UserInputService')
-local mouse = lp:GetMouse()
-local tws = game:GetService('TweenService')
-local function giveBomb()
-	fireclickdetector(workspace['Game Assets'].TakeGear.ClickDetector)
-end
-local function trollUser(name)
-	giveBomb()
-	wait(0.3)
-	local tool = game.Players.LocalPlayer.Backpack['Stun Bomb']
-	tool.Parent = char
-	wait(0.5)
-	local A_1 = game.Players[name].Character.HumanoidRootPart.CFrame
-	local A_2 = Vector3.new(0,0,0)
-	local A_3 = true
-	tool.SpawnGrenade:FireServer(A_1, A_2, A_3)
-	wait(1.5)
-end
-local aimbotSettings = 
-	{
-	enabled = false,
-	bp = 'Head',
-	}
-local tabs = 
-    {
-    guns = ui:CreateTab('guns',"guns 'n shit lol",true),
-    aimbot = ui:CreateTab('aimbot','aimbot settings',true),
-    }
-local guns = {'Stun Bomb'}
-local cmds = {
-	te = function(args)
-		trollUser(args[2])
+if game.PlaceId == 5482568838 then
+	local function getlink(name)
+ 	 return "https://raw.githubusercontent.com/ignas9/bloodspree__-heusfoujoad/master/___------_____GHEA___---____----"..name
 	end
-}
-for i,v in next, reps:WaitForChild('Primary'):GetChildren() do
-    table.insert(guns,v.Name)
-end
-for i,v in next, reps:WaitForChild('Secondary'):GetChildren() do
-    table.insert(guns,v.Name)
-end
-local function command(g)
-	g=g:split(' ')cmds[g[1]:lower()](g)
-end
-local function notify(titl,des,delayTime,callback)
-	local callback = callback or function() end
-	local delayTime = delayTime or 3
-	local titl = titl or '>NO TITLE<'
-	local des = des or '>NO DESCRIPTION<'
-	
-	local v_notify = Instance.new("ScreenGui")
+	local ui = loadstring(game:HttpGet(getlink('uilibrary.lua')))()
+	local reps = game:GetService('ReplicatedStorage')
+	local lp = game:GetService('Players').LocalPlayer
+	local char = lp.Character
+	local uis = game:GetService('UserInputService')
+	local mouse = lp:GetMouse()
+	local tws = game:GetService('TweenService')
+	local function giveBomb()
+		fireclickdetector(workspace['Game Assets'].TakeGear.ClickDetector)
+	end
+	local function trollUser(name)
+		giveBomb()
+		wait(0.3)
+		local tool = game.Players.LocalPlayer.Backpack['Stun Bomb']
+		tool.Parent = char
+		wait(0.5)
+		local A_1 = game.Players[name].Character.HumanoidRootPart.CFrame
+		local A_2 = Vector3.new(0,0,0)
+		local A_3 = true
+		tool.SpawnGrenade:FireServer(A_1, A_2, A_3)
+		wait(1.5)
+	end
+	local aimbotSettings = 
+		{
+		enabled = false,
+		bp = 'Head',
+		}
+	local tabs = 
+    	{
+  	  guns = ui:CreateTab('guns',"guns 'n shit lol",true),
+  	  aimbot = ui:CreateTab('aimbot','aimbot settings',true),
+	}
+	local guns = {'Stun Bomb'}
+	local cmds = 
+	{
+		te = function(args)
+			trollUser(args[2])
+		end
+	}
+	for i,v in next, reps:WaitForChild('Primary'):GetChildren() do
+		table.insert(guns,v.Name)
+	end
+	for i,v in next, reps:WaitForChild('Secondary'):GetChildren() do
+	    table.insert(guns,v.Name)
+	end
+	local function command(g)
+		g=g:split(' ')cmds[g[1]:lower()](g)
+	end
+	local function notify(titl,des,delayTime,callback)
+		local callback = callback or function() end
+		local delayTime = delayTime or 3
+		local titl = titl or '>NO TITLE<'
+		local des = des or '>NO DESCRIPTION<'
+		
+		local v_notify = Instance.new("ScreenGui")
 local topbar = Instance.new("ImageLabel")
 local underline = Instance.new("Frame")
 local background = Instance.new("ImageLabel")
@@ -144,8 +146,8 @@ wait(1)
 v_notify:remove()
 end
 local function remote(ev,name,...)
-    local rem
-    if ev == false then
+   	 local rem
+    	if ev == false then
         rem = reps:WaitForChild(name)
     else
         rem = reps:FindFirstChild('Remotes'):WaitForChild(name)
@@ -271,11 +273,21 @@ tabs.guns:CreateDropDown('Give Gun',guns,function(arg)
     	giveBomb()
     end
 end)
-tabs.aimbot:CreateToggle("Aimbot",function(arg)
+local v_lll11l11l1l1l11ll1l tabs.aimbot:CreateToggle("Aimbot",function(arg)
 	aimbotSettings.enabled = arg
 end)
-tabs.aimbot:CreateDropDown('Aimbot Part',{'Head','Torso'},function(arg)
+
+local v_1111l1l1l1l1l11l1l1 = tabs.aimbot:CreateDropDown('Aimbot Part',{'Head','Torso'},function(arg)
 	aimbotSettings.bd = arg
+end)
+v_1111l1l1l1l1l11l1l1:Set('Head')
+
+game:GetService("UserInputService").InputBegan:connect(function(inputObject,iswriting)
+	if iswriting then return end
+	if inputObject.KeyCode == Enum.KeyCode.V and not iswriting and iswriting == false then
+		aimbotSettings.enabled = not aimbotSettings.enabled
+		v_lll11l11l1l1l11ll1l:Set(aimbotSettings.enabled)
+	end
 end)
 
 uis.InputBegan:Connect(function(obj,is)
@@ -294,3 +306,5 @@ lp.Chatted:Connect(function(m)
 end)
 
 notify('Bloodspree Haxx','Loaded Bloodspree Haxx Press RightCtrl to toggle gui!',5)
+notify('Aimbot Prefix','Press V to Toggle aimbot!',5)
+end
