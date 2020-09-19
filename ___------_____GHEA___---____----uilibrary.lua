@@ -328,11 +328,11 @@ function library:CreateTab(text, desc, mode)
                 callback(Toggled)
             end
         )
-
+	 resize(30)
 			
 		local aa = {}
 
-		function aa:Set(bool)
+		function aa.set(bool)
 			if bool then
 				Toggled = true
 				TweenService:Create(
@@ -350,7 +350,6 @@ function library:CreateTab(text, desc, mode)
 			end
 		end
 
-        resize(30)
 
 		return aa
     end
