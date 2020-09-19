@@ -249,9 +249,11 @@ end
 end)
 tabs.lp:CreateSlider('Speed',16,500,function(v)
 	speed = v
+	char.Humanoid.WalkSpeed = speed
 end)
 tabs.lp:CreateSlider('JumpPower',50,500,function(v)
 	jp = v
+	char.Humanoid.JumpPower = jp
 end)
 tabs.guns:CreateButton('Give all primary guns',function()
     for i,v in next,reps:WaitForChild('Primary'):GetChildren() do
@@ -282,7 +284,7 @@ tabs.guns:CreateDropDown('Give Gun',guns,function(arg)
     	giveBomb()
     end
 end)
-local v_lll11l11l1l1l11ll1l tabs.aimbot:CreateToggle("Aimbot",function(arg)
+local v_lll11l11l1l1l11ll1l = tabs.aimbot:CreateToggle("Aimbot",function(arg)
 	aimbotSettings.enabled = arg
 end)
 
@@ -317,8 +319,11 @@ lp.Chatted:Connect(function(m)
 		m=m:gsub('/e ','')command(m)
 	end
 end)
-lp.CharacterAdded:Connect(function()
-	
+lp.CharacterAdded:Connect(function(c)
+	wait(2)
+	char=c
+	c.Humanoid.WalkSpeed = speed
+	c.Humanoid.JumpPower = jp
 end)
 notify('Bloodspree Haxx','Loaded Bloodspree Haxx Press RightCtrl to toggle gui!',5)
 notify('Aimbot Prefix','Press V to Toggle aimbot!',5)
