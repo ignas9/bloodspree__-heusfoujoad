@@ -337,8 +337,10 @@ lp.Chatted:Connect(function(m)
 end)
 spawn(function()
 	while wait(0.2) do
-		c.Humanoid.WalkSpeed = speed
-		c.Humanoid.JumpPower = jp
+		pcall(function()
+			c.Humanoid.WalkSpeed = speed
+			c.Humanoid.JumpPower = jp
+		end)
 	end
 end)
 lp.CharacterAdded:Connect(function(c)
