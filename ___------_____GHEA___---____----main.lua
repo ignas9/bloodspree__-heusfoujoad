@@ -335,6 +335,12 @@ lp.Chatted:Connect(function(m)
 		m=m:gsub('/e ','')command(m)
 	end
 end)
+spawn(function()
+	while wait(0.2) do
+		c.Humanoid.WalkSpeed = speed
+		c.Humanoid.JumpPower = jp
+	end
+end)
 lp.CharacterAdded:Connect(function(c)
 	wait(2)
 	char=c
