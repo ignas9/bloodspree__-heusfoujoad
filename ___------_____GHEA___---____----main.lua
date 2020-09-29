@@ -12,6 +12,7 @@ if game.PlaceId == 5482568838 then
 	local speed = game.Players.LocalPlayer.Character.Humanoid.WalkSpeed
 	local jp = game.Players.LocalPlayer.Character.Humanoid.JumpPower
 	local orig_ws = game.Players.LocalPlayer.Character.Humanoid.WalkSpeed
+	local orig_jp = game.Players.LocalPlayer.Character.Humanoid.JumpPower
 	local gmt = getrawmetatable(game)
 	setreadonly(gmt,false)
 	local oldindex = gmt.__index
@@ -19,6 +20,9 @@ if game.PlaceId == 5482568838 then
 	gmt.__index = newcclosure(function(self,b)
 		if b=='WalkSpeed' then
 			return orig_ws
+		end
+		if b=='JumpPower' then
+			return orig_jp
 		end
 		
 		return oldindex(self,b)
