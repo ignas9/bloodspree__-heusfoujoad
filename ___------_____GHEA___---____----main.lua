@@ -9,8 +9,20 @@ if game.PlaceId == 5482568838 then
 	local uis = game:GetService('UserInputService')
 	local mouse = lp:GetMouse()
 	local tws = game:GetService('TweenService')
-	local speed = 16
-	local jp = 50
+	local speed = game.Players.LocalPlayer.Character.Humanoid.WalkSpeed
+	local jp = game.Players.LocalPlayer.Character.Humanoid.JumpPower
+	local orig_ws = game.Players.LocalPlayer.Character.Humanoid.WalkSpeed
+	local gmt = getrawmetatable(game)
+	setreadonly(gmt,false)
+	local oldindex = gmt.__index
+
+	gmt.__index = newcclosure(function(self,b)
+		if b=='WalkSpeed' then
+			return orig_ws
+		end
+		
+		return oldindex(self,b)
+	end)
 	local function giveBomb()
 		fireclickdetector(workspace['Game Assets'].TakeGear.ClickDetector,999)
 	end
@@ -247,11 +259,11 @@ workspace.CurrentCamera.CFrame = CFrame.new(workspace.CurrentCamera.CFrame.Posit
 end
 end
 end)
-tabs.lp:CreateSlider('Speed',16,500,function(v)
+tabs.lp:CreateSlider('Speed',tonumber(game.Players.LocalPlayer.Character.Humanoid.WalkSpeed),500,function(v)
 	speed = v
 	char.Humanoid.WalkSpeed = speed
 end)
-tabs.lp:CreateSlider('JumpPower',50,500,function(v)
+tabs.lp:CreateSlider('JumpPower',tonumber(game.Players.LocalPlayer.Character.Humanoid.JumpPower),500,function(v)
 	jp = v
 	char.Humanoid.JumpPower = jp
 end)
