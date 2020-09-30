@@ -30,18 +30,6 @@ if game.PlaceId == 5482568838 then
 	local function giveBomb()
 		fireclickdetector(workspace['Game Assets'].TakeGear.ClickDetector,999)
 	end
-	local function trollUser(name)
-		giveBomb()
-		wait(0.3)
-		local tool = game.Players.LocalPlayer.Backpack['Stun Bomb']
-		tool.Parent = char
-		wait(0.5)
-		local A_1 = game.Players[name].Character.HumanoidRootPart.CFrame
-		local A_2 = Vector3.new(0,0,0)
-		local A_3 = true
-		tool.SpawnGrenade:FireServer(A_1, A_2, A_3)
-		wait(1.5)
-	end
 	local aimbotSettings = 
 		{
 		enabled = false,
@@ -54,12 +42,6 @@ if game.PlaceId == 5482568838 then
 	  lp = ui:CreateTab('localplayer','modify yourself',true),
 	}
 	local guns = {'Stun Bomb'}
-	local cmds = 
-	{
-		te = function(args)
-			trollUser(args[2])
-		end
-	}
 	for i,v in next, reps:WaitForChild('Primary'):GetChildren() do
 		table.insert(guns,v.Name)
 	end
