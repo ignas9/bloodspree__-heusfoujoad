@@ -1,3 +1,4 @@
+--//THIS IS A EDITED VERSION OF A UI LIBRARY PLZ NO HATE CREDITS TO ORIGINAL CREATOR(S)\\--
 --light theme
 local theme = {
     Tab_Color = Color3.fromRGB(255, 255, 255),
